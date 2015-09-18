@@ -9,7 +9,7 @@ VALUES ('$data->user_name', '$data->user_image', '$data->user_status')";
 if (mysqli_query($conn, $sql)) {
     echo 'true';
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "false";
 }
 
 mysqli_close($conn);

@@ -15,14 +15,15 @@
 <body>
 <div class="container">
     <div class="container-fluid">
-        <div class="well">
+        <div class="well" ng-controller="Login">
             <h1>Gigo Game</h1>
-            <img src="images/gigolo.jpg" class="img-circle" width="70%">
-            <div ng-controller="Login">
+            <img src="images/gigolo.jpg" class="img-circle" width="70%" ng-if="!isLogged" />
+            <img ng-src="{{user_img}}" class="img-circle" width="70%" ng-if="isLogged" />
+            <div>
                 <div class="form-group">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1">@</span>
-                        <input type="text" ng-model="user.name" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+                        <input type="text" ng-model="user.name" class="form-control" placeholder="Username">
                     </div>
                 </div>
                 <div class="form-group">
