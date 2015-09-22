@@ -3,10 +3,11 @@ include 'connect.php';
 
 $data = json_decode(file_get_contents('php://input'));
 
+echo "esto es data desde el php --->  ".json_encode($data);
 
-
-$sql = "INSERT INTO users (user_name, user_image, user_status)
-VALUES ('$data->user_name', '$data->user_image', '$data->user_status')";
+$sql = "UPDATE users
+        SET user_status='$data->user_status'
+        WHERE user_name='$data->user_name'";
 
 if (mysqli_query($conn, $sql)) {
     echo 'true';
@@ -15,5 +16,4 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-
 

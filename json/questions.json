@@ -1,0 +1,14 @@
+[
+    {
+        "question": "¿Fue River campeón de la libertadores 2015?",
+        "answer": true
+    },
+    {
+        "question": "¿Es Marcelo Tinelli el conductor de Bendita TV?",
+        "answer": false
+    },
+    {
+        "question": "Tercer Pregunta",
+        "answer": false
+    }
+]
