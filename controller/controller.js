@@ -1,7 +1,7 @@
 var App = angular.module('GigoloApp', [])
 
 App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function ($scope, $http, $rootScope, $timeout) {
-    $scope.user_img = "images/gigolo.jpg";
+    $scope.user_img = "images/avatar.png";
 
     $scope.save = function (user) {
         $scope.user_img = 'https://twitter.com/' + user.name + '/profile_image?size=original';
