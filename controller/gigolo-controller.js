@@ -98,7 +98,15 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
             $rootScope.isUpdated = true;
         });
     }
-}]);
+}]).directive('animateGigolo',function(){
+    return {
+        restrict: 'EAC',
+        require: '?ngModel',
+        link: function($scope, $element) {
+            console.log('$element -->', $element);
+        }
+    };
+});
 
 App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval) {
 
@@ -139,6 +147,5 @@ App.controller('LoggedUsers',['$scope', '$http', '$interval', function ($scope, 
             $scope.loggedUsers = data;
         });
     },1000);
-
 
 }]);
