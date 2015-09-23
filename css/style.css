@@ -3,7 +3,9 @@
   src: url("../fonts/Ranchers-Regular.ttf") format("truetype"); }
 /* Space out content a bit */
 body {
-  height: 100%; }
+  width: 100%;
+  height: 100%;
+  margin: 0; }
 
 .container {
   margin: 0;
@@ -15,16 +17,17 @@ body {
 
 .input-group {
   margin-top: 1em; }
+  .input-group .form-control {
+    width: 18em;
+    height: 2.84615em;
+    border-radius: 5px; }
 
 #login-box {
-  background: url(../images/bg-01.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background: url(../images/bg-01.png) no-repeat 50% 50% fixed;
+  background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  border: none;
-  width: 100%;
-  height: 100%; }
+  -webkit-background-size: cover; }
   #login-box h1 {
     background: url(../images/logo.png) no-repeat;
     height: 5.125em;
@@ -32,16 +35,17 @@ body {
     text-indent: -999em;
     overflow: hidden;
     top: 0;
-    position: relative;
-    float: left;
     width: 16.625em;
-    margin-left: 6%; }
+    margin-left: auto;
+    margin-right: auto; }
   #login-box img {
     margin-left: 0.625em; }
   #login-box .input-group-addon {
     background-color: #4EE2C1;
     border: none;
-    color: mintcream; }
+    color: mintcream;
+    padding: 12px;
+    border-radius: 5px; }
   #login-box .btn-lg {
     background: linear-gradient(to right, #c928bc 0%, #4336B5 100%);
     border: none;
@@ -49,8 +53,11 @@ body {
     font-size: 35px;
     padding-top: 0;
     padding-bottom: 0;
-    width: 100%;
-    margin-top: 0.42857em; }
+    width: 75%;
+    margin-top: 0.42857em;
+    border-radius: 5px;
+    box-shadow: 6px 3px 20px 1px black;
+    color: white; }
 
 #question-box {
   background: url(../images/bg-02.png) no-repeat center center fixed;

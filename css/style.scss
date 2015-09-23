@@ -5,7 +5,9 @@
 
 /* Space out content a bit */
 body {
+  width: 100%;
   height: 100%;
+  margin: 0;
 }
 .container{
   .container-fluid {
@@ -20,17 +22,19 @@ body {
 
 .input-group{
   margin-top: 1em;
+  .form-control {
+    width: (234em/13);
+    height: (37em/13);
+    border-radius: 5px;
+  }
 }
 
 #login-box {
-  background: url(../images/bg-01.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background: url(../images/bg-01.png) no-repeat 50% 50% fixed;
+  background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  border: none;
-  width:100%;
-  height: 100%;
+  -webkit-background-size: cover;
 
   h1{
     background: url(../images/logo.png) no-repeat;
@@ -39,10 +43,9 @@ body {
     text-indent: -999em;
     overflow: hidden;
     top:0;
-    position: relative;
-    float: left;
     width: (266em/16);
-    margin-left: 6%;
+    margin-left: auto;
+    margin-right: auto;
   }
   img {
     margin-left: (10em/16);
@@ -51,6 +54,8 @@ body {
     background-color: #4EE2C1;
     border: none;
     color: mintcream;
+    padding: 12px;
+    border-radius: 5px;
   }
   .btn-lg {
     background: linear-gradient(to right, #c928bc 0%,#4336B5 100%);
@@ -59,8 +64,11 @@ body {
     font-size: 35px;
     padding-top: 0;
     padding-bottom: 0;
-    width: 100%;
+    width: 75%;
     margin-top: (15em/35);
+    border-radius: 5px;
+    box-shadow: 6px 3px 20px 1px black;
+    color: white;
   }
 }
 
