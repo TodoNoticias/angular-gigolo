@@ -29,11 +29,11 @@ body {
 .input-group{
   margin-top: 1em;
   .form-control {
-    width: 10em;
     border-radius: 5px;
-    margin-left: (-10em/27);
-    font-size: 27px;
-    padding: 9px 5px;
+    font-size: 22px;
+    margin-left: -0.37037em;
+    padding: 12px 5px;
+    width: 10em;
   }
 }
 
@@ -49,7 +49,7 @@ body {
     width: (266em/16);
     margin-left: auto;
     margin-right: auto;
-    margin-top: (20em/16);
+    margin-top: (10em/16);
   }
   img {
     margin-left: (10em/16);
@@ -59,7 +59,7 @@ body {
     background-color: #4EE2C1;
     border: none;
     color: mintcream;
-    padding: 13px 27px 13px 18px;
+    padding: 11px 20px 15px 11px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 23px;
@@ -111,7 +111,7 @@ body {
     }
   }
   .textQuestion {
-    font-size: 45px;
+    font-size: 40px;
   }
   ul{
     position: relative;
@@ -126,7 +126,7 @@ body {
   .buttons {
     padding-top: (30em/45);
     margin: 0 auto;
-    width: 80%;
+    width: 85%;
     .btn {
       display: block;
       height: 55px;

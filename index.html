@@ -25,7 +25,7 @@
                 <button  class="btn btn-lg btn-success" ng-click="save(user,$event)" >ALL THE NAIT!</button>
             </div>
         </section>
-        <div class="timer" ng-controller="Timer" ng-show="isLogged && !fail">0000</div>
+        <div class="timer" ng-controller="Timer" ng-show="isLogged && !fail">{{min}}:{{seg}}:{{cent}}</div>
         <section id="question-box" ng-controller="Question" ng-show="isLogged && !fail && !win">
             <div class="questions">{{currentIndex + 1}} <span class="next">/ {{questions.length}}</span></div>
             <ul>
