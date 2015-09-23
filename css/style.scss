@@ -14,6 +14,7 @@ body {
   font-family: Helvetica, Arial, san-serif;
   background-color: white;
   background-size: cover;
+  overflow: hidden;
 }
 .container{
   .container-fluid {
@@ -54,6 +55,7 @@ body {
   img {
     margin-left: (10em/16);
     border-radius: 800px;
+    width: 65%;
   }
   .input-group-addon {
     background-color: #4EE2C1;
@@ -72,7 +74,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     width: 93%;
-    margin-top: (15em/35);
+    margin-top: (8em/35);
     border-radius: 5px;
     box-shadow: 6px 3px 20px 1px black;
     color: white;
@@ -143,7 +145,7 @@ body {
       text-decoration: none;
     }
     .falseB {
-      margin-top:(25em/30);
+      margin-top:(10em/30);
       background: linear-gradient(to right, #FF003F 0%, #FF0051 100%);
     }
   }
@@ -162,7 +164,7 @@ body {
 
   .alert-success {
     font-family: "Ranchers";
-    font-size: 55px;
+    font-size: 47px;
     text-align: center;
     top: 20%;
     position: absolute;
@@ -184,7 +186,7 @@ body {
 
   .alert-danger {
     font-family: "Ranchers";
-    font-size: 60px;
+    font-size: 55px;
     text-align: center;
     top: 22%;
     position: absolute;

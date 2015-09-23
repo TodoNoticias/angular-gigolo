@@ -11,7 +11,8 @@ body {
   margin: 0;
   font-family: Helvetica, Arial, san-serif;
   background-color: white;
-  background-size: cover; }
+  background-size: cover;
+  overflow: hidden; }
 
 .container {
   margin: 0;
@@ -43,7 +44,8 @@ body {
   margin-top: 0.625em; }
 #login-box img {
   margin-left: 0.625em;
-  border-radius: 800px; }
+  border-radius: 800px;
+  width: 65%; }
 #login-box .input-group-addon {
   background-color: #4EE2C1;
   border: none;
@@ -60,7 +62,7 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   width: 93%;
-  margin-top: 0.42857em;
+  margin-top: 0.22857em;
   border-radius: 5px;
   box-shadow: 6px 3px 20px 1px black;
   color: white; }
@@ -120,7 +122,7 @@ body {
     #question-box .buttons a.btn {
       text-decoration: none; }
     #question-box .buttons .falseB {
-      margin-top: 0.83333em;
+      margin-top: 0.33333em;
       background: linear-gradient(to right, #FF003F 0%, #FF0051 100%); }
 
 #success-msg {
@@ -135,7 +137,7 @@ body {
   -webkit-transition-duration: 0.5s; }
   #success-msg .alert-success {
     font-family: "Ranchers";
-    font-size: 55px;
+    font-size: 47px;
     text-align: center;
     top: 20%;
     position: absolute;
@@ -154,7 +156,7 @@ body {
   -webkit-transition-duration: 0.5s; }
   #fail-msg .alert-danger {
     font-family: "Ranchers";
-    font-size: 60px;
+    font-size: 55px;
     text-align: center;
     top: 22%;
     position: absolute;
