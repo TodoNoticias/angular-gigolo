@@ -65,9 +65,6 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
 
         $scope.response = function (response) {
 
-            console.log('response ---> ', response);
-            console.log('data[$scope.currentIndex].answer ---> ', data[$scope.currentIndex].answer);
-
             if (response === data[$scope.currentIndex].answer) {
                 $scope.currentIndex++;
 
