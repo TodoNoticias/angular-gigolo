@@ -19,7 +19,7 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
          */
         var userData = {
             user_name: user.name,
-            user_status: 1
+            user_status: 'online'
         };
 
         /*
@@ -44,7 +44,7 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
             $timeout(function () {
                 $rootScope.isLogged = Boolean(data);
                 $rootScope.executeTimer();
-            }, 1000)
+            }, 3000)
         });
     }
 }]);
@@ -73,7 +73,7 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
 
             } else {
                 $rootScope.fail = true;
-                $rootScope.user.user_status = 0;
+                $rootScope.user.user_status = 'lose';
                 update_usr($rootScope.user);
                 $rootScope.stopTimer();
             }
@@ -139,5 +139,6 @@ App.controller('LoggedUsers',['$scope', '$http', '$interval', function ($scope, 
             $scope.loggedUsers = data;
         });
     },1000);
+
 
 }]);

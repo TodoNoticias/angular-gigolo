@@ -5,12 +5,13 @@ include 'connect.php';
 
 $return_arr = array();
 
-$fetch = mysqli_query($conn,"SELECT * FROM users where user_status =1");
+$fetch = mysqli_query($conn,"SELECT * FROM users");
 
 
 while ($row = mysqli_fetch_array($fetch)) {
     $row_array['id'] = $row['id'];
     $row_array['user_name'] = $row['user_name'];
+    $row_array['user_status'] = $row['user_status'];
     array_push($return_arr,$row_array);
 }
 

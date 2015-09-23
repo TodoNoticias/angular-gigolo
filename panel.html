@@ -19,7 +19,7 @@
     <aside class="aside" ng-controller="LoggedUsers">
         <ul class="user-list">
             <li ng-repeat="row in loggedUsers">
-                <ul class="user">
+                <ul class="user {{row.user_status}}">
                     <li class="user-avatar"><img ng-src="https://twitter.com/{{row.user_name}}/profile_image?size=original" class="img-circle" /></li>
                     <li class="user-name">@{{row.user_name}}</li>
                 </ul>
