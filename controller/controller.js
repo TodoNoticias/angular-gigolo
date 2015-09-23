@@ -22,13 +22,14 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
         }).success(function (data) {
             $timeout(function () {
                 $rootScope.isLogged = Boolean(data);
+                $rootScope.executeTimer();
             }, 5000)
+
         });
     }
 }]);
 
-
-App.controller('Question', ['$scope', '$http', '$rootScope', '$timeout', function ($scope, $http, $rootScope, $timeout) {
+App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
     $http.get('json/questions.json').success(function (data) {
 
@@ -43,24 +44,33 @@ App.controller('Question', ['$scope', '$http', '$rootScope', '$timeout', functio
         };
 
         $scope.response = function (response) {
+
+            console.log('response ---> ',response);
+            console.log('data[$scope.currentIndex].answer ---> ',data[$scope.currentIndex].answer);
+
             if (response === data[$scope.currentIndex].answer) {
                 $scope.currentIndex++;
-                $rootScope.win =  $scope.questions.length == $scope.currentIndex ? true : false;
-                $rootScope.user.user_time = $scope.time;
-                update_usr($rootScope.user);
-
 
             } else {
                 $rootScope.fail = true;
                 $rootScope.user.user_status = 0;
                 update_usr($rootScope.user);
+                $rootScope.stopTimer();
             }
+
+            $rootScope.win = $scope.questions.length == $scope.currentIndex ? true : false;
+
+            if($rootScope.win){
+                $rootScope.stopTimer();
+                update_usr($rootScope.user);
+                $rootScope.user.user_time = $rootScope.user_time;
+            }
+
+
         }
     });
 
-    function update_usr(data){
-        console.log('Esta es la data que llea ---> ',data)
-
+    function update_usr(data) {
         $http({
             url: 'php-scripts/update.php',
             method: 'POST',
@@ -69,5 +79,36 @@ App.controller('Question', ['$scope', '$http', '$rootScope', '$timeout', functio
         }).success(function (data) {
             $rootScope.isUpdated = true;
         });
+    }
+}]);
+
+App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope,$rootScope, $interval) {
+
+    $scope.cent = 0;
+    $scope.seg = 0;
+    $scope.min = 0;
+    var interval;
+
+    $scope.onTimeout = function(){
+        $scope.cent++;
+
+        if($scope.cent == 99){
+            $scope.cent = 0;
+            $scope.seg++;
+            $scope.seg = ($scope.seg).toString().length < 2 ? '0'+$scope.seg : $scope.seg
+        }
+        if($scope.seg == 60){
+            $scope.seg = 0
+            $scope.min++
+        }
+    }
+
+    $rootScope.executeTimer = function (){
+       interval = $interval($scope.onTimeout,10);
+    }
+
+    $rootScope.stopTimer = function(){
+        $interval.cancel(interval);
+        $rootScope.user_time = $scope.min +':'+$scope.seg +':'+$scope.cent
     }
 }]);
