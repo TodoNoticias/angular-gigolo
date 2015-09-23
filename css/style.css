@@ -161,4 +161,9 @@ body {
     color: yellow;
     word-spacing: 7px; }
 
+#ok-msg {
+  top: 2%;
+  position: absolute;
+  left: 9%; }
+
 /*# sourceMappingURL=style.css.map */
