@@ -1,30 +1,51 @@
 var App = angular.module('GigoloApp', [])
 
 App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function ($scope, $http, $rootScope, $timeout) {
+
+    /*
+     * Inicializo la variable que contiene la url del avatar default
+     */
     $scope.user_img = "images/avatar.png";
 
-    $scope.save = function (user) {
+    $scope.save = function (user, $event) {
+
+        /*
+         * sobrescribo la variable con la url de twitter y le paso el "user.name"
+         */
         $scope.user_img = 'https://twitter.com/' + user.name + '/profile_image?size=original';
 
-        var data = {
+        /*
+        * Creo un array con los datos del usuario
+         */
+        var userData = {
             user_name: user.name,
             user_image: $scope.user_img,
             user_status: 1
         };
 
-        $rootScope.user = data;
+        /*
+         *  Recibo el elemento en el cual se ejecuta el evento click y lo convierto en un "angular.element"
+         *  para luego agregarle el atributo disabled.
+         */
+
+        angular.element($event.currentTarget).attr('disabled', 'disabled')
+
+        /*
+         * Hago un set de los datos del usuario en el $rootScope para tenerlos disponibles siempre
+         */
+        $rootScope.user = userData;
+
 
         $http({
             url: 'php-scripts/save.php',
             method: 'POST',
-            data: JSON.stringify(data),
+            data: JSON.stringify(userData),
             headers: {'content-type': 'application/json'}
         }).success(function (data) {
             $timeout(function () {
                 $rootScope.isLogged = Boolean(data);
                 $rootScope.executeTimer();
             }, 5000)
-
         });
     }
 }]);
@@ -45,8 +66,8 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
 
         $scope.response = function (response) {
 
-            console.log('response ---> ',response);
-            console.log('data[$scope.currentIndex].answer ---> ',data[$scope.currentIndex].answer);
+            console.log('response ---> ', response);
+            console.log('data[$scope.currentIndex].answer ---> ', data[$scope.currentIndex].answer);
 
             if (response === data[$scope.currentIndex].answer) {
                 $scope.currentIndex++;
@@ -60,13 +81,11 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
 
             $rootScope.win = $scope.questions.length == $scope.currentIndex ? true : false;
 
-            if($rootScope.win){
+            if ($rootScope.win) {
                 $rootScope.stopTimer();
-                update_usr($rootScope.user);
                 $rootScope.user.user_time = $rootScope.user_time;
+                update_usr($rootScope.user);
             }
-
-
         }
     });
 
@@ -82,33 +101,33 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
     }
 }]);
 
-App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope,$rootScope, $interval) {
+App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval) {
 
     $scope.cent = 0;
     $scope.seg = 0;
     $scope.min = 0;
     var interval;
 
-    $scope.onTimeout = function(){
+    $scope.onTimeout = function () {
         $scope.cent++;
 
-        if($scope.cent == 99){
+        if ($scope.cent == 99) {
             $scope.cent = 0;
             $scope.seg++;
-            $scope.seg = ($scope.seg).toString().length < 2 ? '0'+$scope.seg : $scope.seg
+            $scope.seg = ($scope.seg).toString().length < 2 ? '0' + $scope.seg : $scope.seg
         }
-        if($scope.seg == 60){
+        if ($scope.seg == 60) {
             $scope.seg = 0
             $scope.min++
         }
     }
 
-    $rootScope.executeTimer = function (){
-       interval = $interval($scope.onTimeout,10);
+    $rootScope.executeTimer = function () {
+        interval = $interval($scope.onTimeout, 10);
     }
 
-    $rootScope.stopTimer = function(){
+    $rootScope.stopTimer = function () {
         $interval.cancel(interval);
-        $rootScope.user_time = $scope.min +':'+$scope.seg +':'+$scope.cent
+        $rootScope.user_time = $scope.min + ':' + $scope.seg + ':' + $scope.cent
     }
 }]);
