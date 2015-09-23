@@ -11,7 +11,8 @@ body {
   margin: 0;
   font-family: Helvetica, Arial, san-serif;
   background-color: white;
-  background-size: cover; }
+  background-size: cover;
+  overflow: hidden; }
 
 .container {
   margin: 0;
@@ -24,11 +25,11 @@ body {
 .input-group {
   margin-top: 1em; }
   .input-group .form-control {
-    width: 10em;
     border-radius: 5px;
+    font-size: 22px;
     margin-left: -0.37037em;
-    font-size: 27px;
-    padding: 9px 5px; }
+    padding: 12px 5px;
+    width: 10em; }
 
 #login-box .name {
   background: url(../images/logo.png) no-repeat;
@@ -40,15 +41,16 @@ body {
   width: 16.625em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.25em; }
+  margin-top: 0.625em; }
 #login-box img {
   margin-left: 0.625em;
-  border-radius: 800px; }
+  border-radius: 800px;
+  width: 65%; }
 #login-box .input-group-addon {
   background-color: #4EE2C1;
   border: none;
   color: mintcream;
-  padding: 13px 27px 13px 18px;
+  padding: 11px 20px 15px 11px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 23px; }
@@ -60,14 +62,14 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   width: 93%;
-  margin-top: 0.42857em;
+  margin-top: 0.22857em;
   border-radius: 5px;
   box-shadow: 6px 3px 20px 1px black;
   color: white; }
 
 .timer {
-  height: 80px;
-  width: 150px;
+  height: 70px;
+  width: 160px;
   border-radius: 0px 0px 71px 150px;
   -moz-border-radius: 0px 0px 71px 150px;
   -webkit-border-radius: 0px 0px 71px 150px;
@@ -94,7 +96,7 @@ body {
     #question-box .questions .next {
       color: #6983FF; }
   #question-box .textQuestion {
-    font-size: 45px; }
+    font-size: 40px; }
   #question-box ul {
     position: relative;
     list-style: none;
@@ -105,7 +107,7 @@ body {
   #question-box .buttons {
     padding-top: 0.66667em;
     margin: 0 auto;
-    width: 80%; }
+    width: 85%; }
     #question-box .buttons .btn {
       display: block;
       height: 55px;
@@ -120,7 +122,7 @@ body {
     #question-box .buttons a.btn {
       text-decoration: none; }
     #question-box .buttons .falseB {
-      margin-top: 0.83333em;
+      margin-top: 0.33333em;
       background: linear-gradient(to right, #FF003F 0%, #FF0051 100%); }
 
 #success-msg {
@@ -135,7 +137,7 @@ body {
   -webkit-transition-duration: 0.5s; }
   #success-msg .alert-success {
     font-family: "Ranchers";
-    font-size: 55px;
+    font-size: 47px;
     text-align: center;
     top: 20%;
     position: absolute;
@@ -154,7 +156,7 @@ body {
   -webkit-transition-duration: 0.5s; }
   #fail-msg .alert-danger {
     font-family: "Ranchers";
-    font-size: 60px;
+    font-size: 55px;
     text-align: center;
     top: 22%;
     position: absolute;
