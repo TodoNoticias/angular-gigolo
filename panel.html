@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GigoloApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1.0" name="viewport">
+    <title>Gigo Game</title>
+    <link href="css/style-panel.css" rel="stylesheet">
+    <script src="libs/angular.min.js" type="text/javascript"></script>
+    <script src="controller/gigolo-controller.js" type="text/javascript"></script>
+    <link rel="icon" type="image/png" href="./images/avatar.png">
+</head>
+<body>
+<div class="container">
+    <div class="main-panel">
+        <h1 class="logo"></h1>
+        <div class="avatar"></div>
+    </div>
+    <aside class="aside" ng-controller="LoggedUsers">
+        <ul class="user-list">
+            <li ng-repeat="row in loggedUsers">
+                <ul class="user">
+                    <li class="user-avatar"><img ng-src="https://twitter.com/{{row.user_name}}/profile_image?size=original" class="img-circle" /></li>
+                    <li class="user-name">@{{row.user_name}}</li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+</div>
+</body>
+</html>

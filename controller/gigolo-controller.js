@@ -19,7 +19,6 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
          */
         var userData = {
             user_name: user.name,
-            user_image: $scope.user_img,
             user_status: 1
         };
 
@@ -130,4 +129,15 @@ App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, 
         $interval.cancel(interval);
         $rootScope.user_time = $scope.min + ':' + $scope.seg + ':' + $scope.cent
     }
+}]);
+
+
+App.controller('LoggedUsers',['$scope', '$http', '$interval', function ($scope, $http, $interval) {
+
+    $interval(function(){
+        $http.get('php-scripts/get-users.php').success(function (data) {
+            $scope.loggedUsers = data;
+        });
+    },1000);
+
 }]);
