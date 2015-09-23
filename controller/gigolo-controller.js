@@ -98,9 +98,9 @@ App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $
 }]).directive('animateGigolo',function(){
     return {
         restrict: 'EAC',
-        require: '?ngModel',
         link: function($scope, $element) {
             console.log('$element -->', $element);
+            console.log('$scope.currentIndex -->', $scope.currentIndex);
         }
     };
 });
