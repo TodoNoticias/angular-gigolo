@@ -13,7 +13,7 @@
 <div class="container">
     <div class="container-fluid">
         <section id="login-box" class="well" ng-controller="Login" ng-hide="isLogged">
-            <h1>Gigo Game</h1>
+            <div class="name">Gigo Game</div>
             <img ng-src="{{user_img}}" class="img-circle" width="70%" />
             <div class="form-group">
                 <div class="input-group input-group-lg">
@@ -25,29 +25,36 @@
                 <button  class="btn btn-lg btn-success" ng-click="save(user,$event)" >ALL THE NAIT!</button>
             </div>
         </section>
-        <div ng-controller="Timer" ng-show="isLogged && !fail">{{min}}:{{seg}}:{{cent}}</div>
+        <div class="timer" ng-controller="Timer" ng-show="isLogged && !fail">{{min}}:{{seg}}:{{cent}}</div>
         <section id="question-box" ng-controller="Question" ng-show="isLogged && !fail && !win">
-            <h3>Pregunta {{currentIndex + 1}} de {{questions.length}}</h3>
+            <div class="questions">{{currentIndex + 1}} <span class="next">/ {{questions.length}}</span></div>
             <ul>
-                <li ng-repeat="row in questions" ng-if="isCurrentSlideIndex($index)">
+                <li class="textQuestion" ng-repeat="row in questions" ng-if="isCurrentSlideIndex($index)">
                     <ul>
-                        <li>{{row.question}}</li>
-                        <li>
+                        <li class="rowQuestion">{{row.question}}</li>
+                        <li class="buttons">
                             <button type="button" class="btn btn-info" ng-click="response(true)">Verdadero</button>
-                            <button type="button" class="btn btn-info" ng-click="response(false)">Falso</button>
+                            <button type="button" class="btn btn-info falseB" ng-click="response(false)">Falso</button>
                         </li>
                     </ul>
                 </li>
             </ul>
         </section>
+        <div id="ok-msg" ng-show="isLogged && !fail && answerOK" >
+            <div class="alert alert-danger">
+                Respondio OK!!
+            </div>
+        </div>
         <div id="fail-msg" ng-show="isLogged && fail" >
             <div class="alert alert-danger">
-                Perdisteeeeeeeee!!
+                ¡NAH!
+                PERDISTE NO SOS UN KP@ DE LA NOCHE
             </div>
         </div>
         <div id="success-msg" ng-show="isLogged && !fail && win" >
             <div class="alert alert-success">
-                ganaste!!
+                SHAMPEIN!!
+                BANCA Y VEMOS QUIEN FUE EL SUPREMO GIGOLO
             </div>
         </div>
     </div>
