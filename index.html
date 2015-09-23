@@ -24,12 +24,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <button  class="btn btn-lg btn-success" ng-click="save(user)" >ALL THE NAIT!</button>
+                <button  class="btn btn-lg btn-success" ng-click="save(user,$event)" >ALL THE NAIT!</button>
             </div>
         </section>
-
-        <section id="question-box" ng-controller="Question" ng-show="isLogged && !fail">
-            <div ng-controller="Timer">{{min}}:{{seg}}:{{cent}}</div>
+        <div ng-controller="Timer" ng-show="isLogged && !fail">{{min}}:{{seg}}:{{cent}}</div>
+        <section id="question-box" ng-controller="Question" ng-show="isLogged && !fail && !win">
             <h3>Pregunta {{currentIndex + 1}} de {{questions.length}}</h3>
             <ul>
                 <li ng-repeat="row in questions" ng-if="isCurrentSlideIndex($index)">
