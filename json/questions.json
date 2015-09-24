@@ -8,27 +8,39 @@
         "answer": false
     },
     {
-        "question": "Tercer Pregunta",
-        "answer": false
+        "question": "¿Se independizó Argentina 1816?",
+        "answer": true
     }
     ,
     {
-        "question": "Cuarta Pregunta",
-        "answer": false
+        "question": "¿Es Rosa María Juana Martínez Suárez el verdadero nombre de Mirtha Legrand?",
+        "answer": true
     }
     ,
     {
-        "question": "Quinta Pregunta",
-        "answer": false
+        "question": "¿Es Plutón un planeta?",
+        "answer": true
     }
     ,
     {
-        "question": "Sexta Pregunta",
-        "answer": false
+        "question": "¿La raíz cuadrada de 625 es 25?",
+        "answer": true
     }
     ,
     {
-        "question": "Septima Pregunta",
+        "question": "¿Es Nemo un pez espada?",
         "answer": false
+    },
+    {
+        "question": "¿Tiene Nacha Guevara 74 años?",
+        "answer": true
+    },
+    {
+        "question": "¿Es Concón una ciudad Chilena?",
+        "answer": true
+    },
+    {
+        "question": "¿Iba Ricky Fort de paseo a Maaiiimeee?",
+        "answer": true
     }
 ]
