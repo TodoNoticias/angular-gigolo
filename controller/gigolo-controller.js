@@ -134,7 +134,6 @@ App.service('AnimateElement', function ($timeout) {
     }
 });
 
-
 App.controller('LoggedUsers', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
 
     $interval(function () {
