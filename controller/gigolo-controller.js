@@ -39,7 +39,7 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
             $timeout(function () {
                 $rootScope.isLogged = Boolean(data);
                 $rootScope.executeTimer();
-            }, 1000)
+            }, 5000)
         });
     }
 }]);
