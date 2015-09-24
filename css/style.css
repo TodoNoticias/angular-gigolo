@@ -55,7 +55,7 @@ body {
   font-weight: bold;
   font-size: 23px; }
 #login-box .btn-lg {
-  background: linear-gradient(to right, #c928bc 0%, #4336B5 100%);
+  background: linear-gradient(to right, #c928bc 0%, #4336b5 100%);
   border: none;
   font-family: 'Ranchers';
   font-size: 35px;
@@ -73,7 +73,7 @@ body {
   border-radius: 0px 0px 71px 150px;
   -moz-border-radius: 0px 0px 71px 150px;
   -webkit-border-radius: 0px 0px 71px 150px;
-  background: linear-gradient(to right, #4F97E9, #B4ED51 100%);
+  background: linear-gradient(to right, #4f97e9, #b4ed51 100%);
   font-family: 'Ranchers';
   font-size: 30px;
   text-align: center;
@@ -112,7 +112,7 @@ body {
       display: block;
       height: 55px;
       width: 280px;
-      background: linear-gradient(to right, #A0DC0E 0%, #B0DCAB 100%);
+      background: linear-gradient(to right, #a0dc0e 0%, #b0dcab 100%);
       color: white;
       text-align: center;
       font: 30px "Ranchers", Arial, Helvetica, Geneva, sans-serif;
@@ -123,7 +123,7 @@ body {
       text-decoration: none; }
     #question-box .buttons .falseB {
       margin-top: 0.33333em;
-      background: linear-gradient(to right, #FF003F 0%, #FF0051 100%); }
+      background: linear-gradient(to right, #ff003f 0%, #ff0051 100%); }
 
 #success-msg {
   background: url(../images/bg-04.png) no-repeat;
@@ -163,12 +163,12 @@ body {
     color: yellow;
     word-spacing: 7px; }
 
-#ok-msg {
-  top: 2%;
-  position: absolute;
-  left: 9%; }
-
 .animateGigolo {
-  display: none; }
+  position: absolute;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
+  bottom: -100%; }
 
-/*# sourceMappingURL=style.css.map */
+.up {
+  bottom: 0; }

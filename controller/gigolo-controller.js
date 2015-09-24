@@ -15,9 +15,9 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
         $scope.user_img = 'https://twitter.com/' + user.name + '/profile_image?size=original';
 
         /*
-        * Creo un array con los datos del usuario
+         * Creo un array con los datos del usuario
          */
-        var userData = {
+         $rootScope.user  = {
             user_name: user.name,
             user_status: 'online'
         };
@@ -29,81 +29,69 @@ App.controller('Login', ['$scope', '$http', '$rootScope', '$timeout', function (
 
         angular.element($event.currentTarget).attr('disabled', 'disabled')
 
-        /*
-         * Hago un set de los datos del usuario en el $rootScope para tenerlos disponibles siempre
-         */
-        $rootScope.user = userData;
-
 
         $http({
             url: 'php-scripts/save.php',
             method: 'POST',
-            data: JSON.stringify(userData),
+            data: JSON.stringify($rootScope.user),
             headers: {'content-type': 'application/json'}
         }).success(function (data) {
             $timeout(function () {
                 $rootScope.isLogged = Boolean(data);
                 $rootScope.executeTimer();
-            }, 3000)
+            }, 1000)
         });
     }
 }]);
 
-App.controller('Question', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+App.controller('Question', ['$scope', '$http', '$rootScope','$document','AnimateElement', function ($scope, $http, $rootScope,$document,AnimateElement) {
 
-    $http.get('json/questions.json').success(function (data) {
+        $http.get('json/questions.json').success(function (data) {
 
-        $scope.questions = data;
-        $scope.currentIndex = 0;
-        $rootScope.fail = false;
-        $rootScope.win = false;
-        $rootScope.isUpdated = false;
+            $scope.questions = data;
+            $scope.currentIndex = 0;
+            $rootScope.fail = false;
+            $rootScope.win = false;
+            $rootScope.isUpdated = false;
+            var animateDiv = angular.element($document[0].body.querySelector(".animateGigolo"));
 
-        $scope.isCurrentSlideIndex = function (index) {
-            return $scope.currentIndex === index;
-        };
+            $scope.isCurrentSlideIndex = function (index) {
+                return $scope.currentIndex === index;
+            };
 
-        $scope.response = function (response) {
+            $scope.response = function (response) {
 
-            if (response === data[$scope.currentIndex].answer) {
-                $scope.currentIndex++;
+                if (response === data[$scope.currentIndex].answer) {
+                    $scope.currentIndex++;
+                    AnimateElement.animate(animateDiv);
+                } else {
+                    $rootScope.fail = true;
+                    $rootScope.user.user_status = 'loser';
+                    update_usr($rootScope.user);
+                    $rootScope.stopTimer();
+                }
 
-            } else {
-                $rootScope.fail = true;
-                $rootScope.user.user_status = 'lose';
-                update_usr($rootScope.user);
-                $rootScope.stopTimer();
+                $rootScope.win = $scope.questions.length == $scope.currentIndex ? true : false;
+
+                if ($rootScope.win) {
+                    $rootScope.stopTimer();
+                    $rootScope.user.user_time = $rootScope.user_time;
+                    update_usr($rootScope.user);
+                }
             }
-
-            $rootScope.win = $scope.questions.length == $scope.currentIndex ? true : false;
-
-            if ($rootScope.win) {
-                $rootScope.stopTimer();
-                $rootScope.user.user_time = $rootScope.user_time;
-                update_usr($rootScope.user);
-            }
-        }
-    });
-
-    function update_usr(data) {
-        $http({
-            url: 'php-scripts/update.php',
-            method: 'POST',
-            data: JSON.stringify(data),
-            headers: {'content-type': 'application/json'}
-        }).success(function (data) {
-            $rootScope.isUpdated = true;
         });
-    }
-}]).directive('animateGigolo',function(){
-    return {
-        restrict: 'EAC',
-        link: function($scope, $element) {
-            console.log('$element -->', $element);
-            console.log('$scope.currentIndex -->', $scope.currentIndex);
+
+        function update_usr(data) {
+            $http({
+                url: 'php-scripts/update.php',
+                method: 'POST',
+                data: JSON.stringify(data),
+                headers: {'content-type': 'application/json'}
+            }).success(function (data) {
+                $rootScope.isUpdated = true;
+            });
         }
-    };
-});
+    }])
 
 App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval) {
 
@@ -137,12 +125,22 @@ App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, 
 }]);
 
 
-App.controller('LoggedUsers',['$scope', '$http', '$interval', function ($scope, $http, $interval) {
+App.controller('LoggedUsers', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
 
-    $interval(function(){
+    $interval(function () {
         $http.get('php-scripts/get-users.php').success(function (data) {
             $scope.loggedUsers = data;
         });
-    },1000);
+    }, 1000);
 
 }]);
+
+App.service('AnimateElement', function ($timeout) {
+    this.animate = function(ele){
+        ele.addClass('up');
+
+        $timeout(function(){
+            ele.removeClass('up');
+        },500)
+    }
+});

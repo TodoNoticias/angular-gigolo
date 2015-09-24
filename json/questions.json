@@ -11,4 +11,24 @@
         "question": "Tercer Pregunta",
         "answer": false
     }
+    ,
+    {
+        "question": "Cuarta Pregunta",
+        "answer": false
+    }
+    ,
+    {
+        "question": "Quinta Pregunta",
+        "answer": false
+    }
+    ,
+    {
+        "question": "Sexta Pregunta",
+        "answer": false
+    }
+    ,
+    {
+        "question": "Septima Pregunta",
+        "answer": false
+    }
 ]

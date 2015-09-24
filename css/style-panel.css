@@ -2,7 +2,7 @@
   font-family: 'Ranchers';
   src: url("../fonts/Ranchers-Regular.ttf") format("truetype"); }
 html {
-  background: linear-gradient(#3125AF, #B2EA54);
+  background: linear-gradient(#3125af, #b2ea54);
   height: 100%; }
 
 ul li {
@@ -78,9 +78,9 @@ body {
         font-size: 1.5em;
         margin: 10% 0 0 13%; }
 
-.lose {
+.loser {
   position: relative; }
-  .lose:before {
+  .loser:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -90,5 +90,3 @@ body {
     background: url("../images/loser.png") no-repeat;
     background-size: 39%;
     z-index: 9999; }
-
-/*# sourceMappingURL=style-panel.css.map */

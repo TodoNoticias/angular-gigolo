@@ -195,12 +195,15 @@ body {
   }
 }
 
-#ok-msg {
-  top: 2%;
-  position: absolute;
-  left: 9%;
-}
 
 .animateGigolo{
-  display: none;
+    position: absolute;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+  bottom:-100%;
+}
+
+.up{
+  bottom: 0;
 }
