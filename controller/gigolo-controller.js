@@ -124,6 +124,16 @@ App.controller('Timer', ['$scope', '$rootScope', '$interval', function ($scope, 
     }
 }]);
 
+App.service('AnimateElement', function ($timeout) {
+    this.animate = function(ele){
+        ele.addClass('up');
+
+        $timeout(function(){
+            ele.removeClass('up');
+        },500)
+    }
+});
+
 
 App.controller('LoggedUsers', ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
 
@@ -134,13 +144,3 @@ App.controller('LoggedUsers', ['$scope', '$http', '$interval', function ($scope,
     }, 1000);
 
 }]);
-
-App.service('AnimateElement', function ($timeout) {
-    this.animate = function(ele){
-        ele.addClass('up');
-
-        $timeout(function(){
-            ele.removeClass('up');
-        },500)
-    }
-});
