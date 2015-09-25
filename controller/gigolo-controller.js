@@ -143,3 +143,19 @@ App.controller('LoggedUsers', ['$scope', '$http', '$interval', function ($scope,
     }, 1000);
 
 }]);
+
+App.controller('getGigoloWin', ['$scope', '$http', function ($scope, $http) {
+
+    $scope.userWinImg = 'images/copa.jpeg'
+
+    $scope.getWin = function($event){
+       $http.get('php-scripts/get-winner.php').success(function (data) {
+           $scope.userWinImg = 'https://twitter.com/' + data[0].user_name + '/profile_image?size=original';
+           $scope.userWinName = '@'+data[0].user_name;
+           $scope.userWinTime = data[0].user_time;
+       });
+
+        angular.element($event.currentTarget).css('display', 'none')
+   }
+
+}]);
