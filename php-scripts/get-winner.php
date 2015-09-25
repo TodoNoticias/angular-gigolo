@@ -7,7 +7,7 @@ include 'connect.php';
 
 $return_arr = array();
 
-$fetch = mysqli_query($conn,"SELECT * FROM users WHERE user_status='online' ORDER BY user_time ASC LIMIT 1");
+$fetch = mysqli_query($conn,"SELECT * FROM users WHERE user_status='online' AND user_time != '' ORDER BY user_time ASC LIMIT 1");
 
 
 while ($row = mysqli_fetch_array($fetch)) {
