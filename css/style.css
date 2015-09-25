@@ -172,9 +172,9 @@ body {
 
 .animateGigolo {
   position: absolute;
-  -webkit-transition: all 400ms ease-in-out;
-  -moz-transition: all 400ms ease-in-out;
-  -o-transition: all 400ms ease-in-out;
+  -webkit-transition: all 50ms ease-in-out;
+  -moz-transition: all 50ms ease-in-out;
+  -o-transition: all 50ms ease-in-out;
   left: -800px;
   bottom: 0; }
 
