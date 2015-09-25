@@ -4,16 +4,25 @@
 }
 
 /* Space out content a bit */
-body {
-  background: url(../images/bg-01.png) no-repeat 50% 50% fixed;
+html{
+  background: url(../images/bg-01.png) no-repeat 100% 100% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+
+body {
+  width: 100%;
+  min-height: 100%;
   margin: 0;
   font-family: Helvetica, Arial, san-serif;
-  background-color: white;
-  background-size: cover;
+  position: absolute;
   overflow: hidden;
 }
 .container{
@@ -201,9 +210,10 @@ body {
     -webkit-transition: all 400ms ease-in-out;
     -moz-transition: all 400ms ease-in-out;
     -o-transition: all 400ms ease-in-out;
-  bottom:-100%;
+     left:-800px;
+  bottom: 0;
 }
 
 .up{
-  bottom: 0;
+  left: 0;
 }
