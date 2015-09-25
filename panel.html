@@ -12,15 +12,26 @@
 </head>
 <body>
 <div class="container">
-    <div class="main-panel">
+    <div class="main-panel" ng-controller="getGigoloWin">
         <h1 class="logo"></h1>
-        <div class="avatar"></div>
+        <div class="avatar">
+            <img ng-src="{{userWinImg}}" class="img-circle" width="70%" />
+        </div>
+        <div class="name">
+           {{userWinName}}
+        </div>
+        <div class="time">
+            {{userWinTime}}
+        </div>
+        <div class="bt-win-cont">
+            <button ng-click="getWin($event)" class="win-btn">Ganador!!!</button >
+        </div>
     </div>
     <aside class="aside" ng-controller="LoggedUsers">
         <ul class="user-list">
             <li ng-repeat="row in loggedUsers">
                 <ul class="user {{row.user_status}}">
-                    <li class="user-avatar"><img ng-src="https://twitter.com/{{row.user_name}}/profile_image?size=bigger" class="img-circle" /></li>
+                    <li class="user-avatar"><img ng-src="https://twitter.com/{{row.user_name}}/profile_image?size=original" class="img-circle" /></li>
                     <li class="user-name">@{{row.user_name}}</li>
                 </ul>
             </li>
