@@ -13,12 +13,12 @@
     }
     ,
     {
-        "question": "¿Es Rosa María Juana Martínez Suárez el verdadero nombre de Mirtha Legrand?",
+        "question": "¿Es Ana Maria Casanova Moria Casán?",
         "answer": true
     }
     ,
     {
-        "question": "¿Es Plutón un planeta?",
+        "question": "¿Es Venus un planeta?",
         "answer": true
     }
     ,
@@ -36,8 +36,8 @@
         "answer": true
     },
     {
-        "question": "¿Es Concón una ciudad Chilena?",
-        "answer": true
+        "question": "¿Es Concepción del Uruguay parte del territorio Uruguayo?",
+        "answer": false
     },
     {
         "question": "¿Iba Ricky Fort de paseo a Maaiiiaaameee?",
